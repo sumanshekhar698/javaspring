@@ -22,6 +22,7 @@ public class Student {
 	}
 
 	public void setId(int id) {
+		System.out.println("setId() called");
 		this.id = id;
 	}
 
@@ -44,6 +45,10 @@ public class Student {
 	@Override
 	public String toString() {
 		return "Student [id=" + id + ", name=" + name + ", address=" + address + "]";
+	}
+
+	String study() {
+		return "STUDENT studying JAVA SPRING";
 	}
 
 }
