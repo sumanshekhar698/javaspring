@@ -12,6 +12,9 @@ public class Main {
 
 //		Scope of spring by default is Singelton
 		Student s1_bean = (Student) context.getBean("s1");
+		System.out.println(s1_bean);
+		
+		
 		Student s1_bean_dup = (Student) context.getBean("s1");
 		Student s2_bean = (Student) context.getBean("s2");
 		Student s2_bean_dup = (Student) context.getBean("s2");

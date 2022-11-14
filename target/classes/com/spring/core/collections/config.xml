@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/beans/spring-context.xsd">
+
+
+	<bean name="a1" class="com.spring.core.collections.Address"
+		p:city="Delhi" p:pinCode="876876" />
+
+
+	<bean name="e1" class="com.spring.core.collections.Employee">
+		<property name="name">
+			<value>Manoj</value>
+		</property>
+		<property name="phone">
+			<list>
+				<value>9879879876</value>
+				<value>9879869876</value>
+			</list>
+		</property>
+		<property name="courseDuration">
+			<map>
+				<entry key="java" value="5"></entry>
+				<entry key="go lang" value="5"></entry>
+				<entry key="gradle" value="8"></entry>
+			</map>
+		</property>
+		<property name="adress" ref="a1" />
+	</bean>
+
+
+	<!-- pass a null value via c: schema -->	<bean name="ec2" class="com.spring.core.collections.Employee"
+		c:name="Binod" c:phone="#{null}" c:courseDuration="#{null}"
+		c:adress-ref="a1">
+	</bean>
+
+
+	<bean name="ededetails"
+		class="com.spring.core.collections.Employee">
+		<constructor-arg>
+			<value>Binod</value>
+		</constructor-arg>
+
+
+		<constructor-arg type="java.util.List">
+			<list>
+				<value>98755756</value>
+				<value>9245876</value>
+			</list>
+		</constructor-arg>
+
+		<constructor-arg type="java.util.Map">
+			<map>
+				<entry key="java" value="35"></entry>
+				<entry key="go lang" value="54"></entry>
+				<entry key="gradle" value="8"></entry>
+			</map>
+		</constructor-arg>
+
+		<constructor-arg ref="a1">
+			<!-- <null /> -->
+		</constructor-arg>
+	</bean>
+
+
+
+</beans>
